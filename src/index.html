@@ -34,9 +34,10 @@
         </form>
 
         <p class="empty hidden">Engin atriði til að sýna!</p>
-
+        
         <ul class="list">
-                    <li class="finished">
+          <!--
+          <li class="finished">
             <label>
               <input type="checkbox" name="finished" checked />
               <span class="item"
@@ -46,6 +47,7 @@
             </label>
             <button title="Fjarlægja atriði">🗑️</button>
           </li>
+          -->
           <!-- Atriði bætast við hér með JavaScript, fjarlægðu athugasemd til að sjá dæmi -->
           <!--
           <li class="finished">
@@ -79,10 +81,8 @@
           <span class="unfinished">0</span>.
         </div>
         <div class="buttons">
-          <button class="toggle-finished">Fela kláruð atriði</button>
-          <button class="clear-all destructive" title="Hreinsa allan lista">
-            Hreinsa allan lista
-          </button>
+          <button class="hide-finished" id="hide-finished-btn">Fela kláruð atriði</button>
+          <button class="clear-all destructive" id="delete-all-btn" title="Hreinsa allan lista">Hreinsa allan lista</button>
         </div>
       </div>
     </main>

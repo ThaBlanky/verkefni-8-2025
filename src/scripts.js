@@ -1,4 +1,4 @@
-import { updateStats, createTodoItem } from "./lib/todo.js";
+import { checkListState, toggleFinished, updateStats, createTodoItem, clearList } from "./lib/todo.js";
 
 /* TODO import á allt viðeigandi úr ./lib/todo.js */
 /**
@@ -29,12 +29,39 @@ function initialize(todolist) {
 
     createTodoItem(todolist, value);
     updateStats(todolist);
+    
   })
+
+  checkListState(todolist);
+  
+
+  
   
   
   /* TODO setja submit event handler á form */
   /* TODO finna gildi textareits í formi innan event handlers og búa til todo item útfrá því */
   /* TODO tengja „Fela kláruð atriði“ og „Hreinsa lista“ takka */
+  const hideFinishedBtn = document.getElementById("hide-finished-btn");
+  const deleteAllBtn = document.getElementById("delete-all-btn");
+
+  hideFinishedBtn.onclick = function () {
+    if (hideFinishedBtn.textContent === "Fela kláruð atriði") {
+      toggleFinished(todolist);
+      hideFinishedBtn.textContent = "Sýna kláruð atriði";
+    } else {
+      toggleFinished(todolist);
+      hideFinishedBtn.textContent = "Fela kláruð atriði";
+  }
+  }
+  deleteAllBtn.onclick = function () {
+    window.confirm("Ertu viss um að þú viljir eyða öllum atriðum?");
+    clearList(todolist);
+    updateStats(todolist);
+    checkListState(todolist);
+  }
+
+
+
 }
 
 
